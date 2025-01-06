@@ -36,7 +36,15 @@ alias r=reset
 alias st='git status'
 alias dpa='docker ps -a --format "table {{.Names}}\t{{.State}}\t{{.RunningFor}}\t{{.Networks}}\t{{.Mounts}}"'
 alias dcl='docker context list'
-alias vi=nvim
-alias vim=nvim
+#alias vi=nvim
+#alias vim=nvim
 
 alias gapi='gh api --paginate --cache 1h'
+
+
+#project specific
+alias ace='cd $HOME/Documents/Sud/projects/ace'
+alias tsr='cd $HOME/Documents/Sud/projects/ace && npx cds-ts repl'
+alias h="cd $HOME"
+alias dsa='docker start nvim_tmux && docker exec -it nvim_tmux bash'
+alias dso='docker stop nvim_tmux'
