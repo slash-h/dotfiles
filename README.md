@@ -1,3 +1,3 @@
-# qmacro's dotfiles
+# My dotfiles
 
-These are my dotfiles, configuration and settings for the things I use. Feel free to steal, modify, or make fun of. 
+These are qmacro's dotfiles, configuration and settings which I stole and modified some files / scripts for my purpose. Thanks qmacro :)
