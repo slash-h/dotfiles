@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-exec /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --app=https://web.whatsapp.com > /dev/null 2>&1

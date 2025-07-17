@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-sed -u -E 's/^.*([[:digit:]]{2}:[[:digit:]]{2}:[[:digit:]]{2}).{8} (.+)$/\1 \2/'

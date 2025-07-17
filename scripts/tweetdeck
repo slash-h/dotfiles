@@ -1,3 +1,0 @@
-#!/bin/bash
-
-exec chromium --app=https://tweetdeck.twitter.com >/dev/null 2>&1 &

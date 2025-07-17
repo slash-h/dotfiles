@@ -1,9 +1,0 @@
-#!/bin/bash
-
-relativeurl=$1
-
-curl \
-  --silent \
-  --header "Authorization: Bearer ${ACCESSTOKEN}" \
-  "${WORKFLOWAPIROOT}${relativeurl}" \
-| jq .

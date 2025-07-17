@@ -1,8 +1,0 @@
-#!/bin/bash
-
-curl \
-  --silent \
-  --user "$(skv clientid):$(skv clientsecret)" \
-  --data "grant_type=client_credentials" \
-  "$(skv url)/oauth/token" \
-| jq -r .access_token

@@ -1,3 +1,0 @@
-#!/bin/sh
-
-xsetroot -display :0 -name "$(curl -s 'wttr.in/manchester?format=%m%f')"
