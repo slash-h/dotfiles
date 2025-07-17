@@ -9,3 +9,8 @@ export PATH="$PATH:/Users/badgus/.local/bin"
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+#below is for setting certificate in python3
+CERT_PATH='/Users/badgus/Documents/Sud/certs/AllCACertificates.pem'
+export SSL_CERT_FILE=${CERT_PATH}
+export REQUESTS_CA_BUNDLE=${CERT_PATH}
+

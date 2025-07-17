@@ -25,16 +25,16 @@ export CLICOLOR=true
 # Standards
 export XDG_CONFIG_HOME="$HOME/.config"
 
-export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+#export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 # Use Docker's newer BuildKit backend
 export DOCKER_BUILDKIT=1
 
-export CF_HOME="$HOME/.config/cf"
+#export CF_HOME="$HOME/.config/cf"
 
 # This is so I can use $HOSTHOME when invoking Docker from within
 # a container, but want to specify a bind-mount (which of course
 # must refer to the host OS filesystem).
-export HOSTHOME="/Users/I347491"
+#export HOSTHOME="/Users/I347491"
 
 
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
