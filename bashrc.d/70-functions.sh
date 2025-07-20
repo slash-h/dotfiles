@@ -72,20 +72,12 @@ nd() {
   mkdir "$1" && { cd $_ || :; }
 }
 
-ssp() {
-
-  # Stack@SAP Pending
-  cd "$HOME/work/gh/github.tools.sap/I347491/stack-api-tools" || :
-  ./pending > /tmp/pending.dat
-  grep 'Best Practices' /tmp/pending.dat | pbcopy
-  while read -r url; do
-    chrome-cli open "$url"
-  done < <(grep '^http' /tmp/pending.dat)
-
-}
 
 addpath() {
 
   export PATH="$PATH:$PWD"
 
 }
+
+
+

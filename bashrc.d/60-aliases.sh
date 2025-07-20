@@ -41,3 +41,4 @@ alias nv=nvim
 alias gapi='gh api --paginate --cache 1h'
 
 alias nvf='nvim $(fzf)'
+alias pde='docker start pde && docker exec -it pde bash'

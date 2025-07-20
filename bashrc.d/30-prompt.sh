@@ -58,6 +58,66 @@ prompt_git() {
 	echo -e "${1}${branchName}${2}${s}";
 }
 
+cecho () {
+  declare message=${1:-""}
+  declare   color=${2:-"default"}
+
+  declare -A colors
+  colors=(
+          [default]="\e[39m"
+            [black]="\e[30m"
+              [red]="\e[31m"
+            [green]="\e[32m"
+           [yellow]="\e[33m"
+             [blue]="\e[34m"
+          [magenta]="\e[35m"
+             [cyan]="\e[36m"
+             [gray]="\e[37m"
+        [light-red]="\e[91m"
+      [light-green]="\e[92m"
+     [light-yellow]="\e[93m"
+       [light-blue]="\e[94m"
+    [light-magenta]="\e[95m"
+       [light-cyan]="\e[96m"
+       [light-gray]="\e[97m"
+  )
+
+  color=${colors[$color]}
+
+  echo -e "\x01${color}\x02${message}\x01\e[m\x02"
+}
+
+
+# Show colorful chevrons according to what season it is.
+chevrons () {
+  local date=""
+  date=$(date)
+  local chevrons="❯❯❯"
+
+  case $date in
+    # spring
+    *Mar*|*Apr*|*May*)
+      chevrons="$(cecho '❯' cyan)$(cecho '❯' green)$(cecho '❯' yellow)"
+      ;;
+    # summer
+    *Jun*|*Jul*|*Aug*)
+      chevrons="$(cecho '❯' green)$(cecho '❯' yellow)$(cecho '❯' red)"
+      ;;
+    # fall
+    *Sep*|*Oct*|*Nov*)
+      chevrons="$(cecho '❯' yellow)$(cecho '❯' red)$(cecho '❯' magenta)"
+      ;;
+    # winter
+    *Dec*|*Jan*|*Feb*)
+      chevrons="$(cecho '❯' magenta)$(cecho '❯' cyan)$(cecho '❯' green)"
+      ;;
+    *)
+      ;;
+  esac
+
+  echo "$chevrons"
+}
+
 if tput setaf 1 &> /dev/null; then
 	tput sgr0; # reset colors
 	bold=$(tput bold);
@@ -104,17 +164,22 @@ else
 fi;
 
 # Set the terminal title and prompt.
-PS1="\[\033]0;\W\007\]"; # working directory base name
-PS1+="\[${bold}\]\n"; # newline
-PS1+="\[${userStyle}\]\u"; # username
-#PS1+="\[${white}\]@";
-#PS1+="\[${hostStyle}\]\h"; # host
-PS1+="\[${white}\]: ";
-#PS1+="\[${green}\]\w"; # working directory full path
-PS1+="\[${cyan}\]\w"; # working directory full path
-PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
-PS1+="\n";
-PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+#PS1="\[\033]0;\W\007\]"; # working directory base name
+#PS1+="\[${bold}\]\n"; # newline
+#PS1+="\[${userStyle}\]\u"; # username
+##PS1+="\[${white}\]@";
+##PS1+="\[${hostStyle}\]\h"; # host
+#PS1+="\[${white}\]: ";
+##PS1+="\[${green}\]\w"; # working directory full path
+#PS1+="\[${cyan}\]\w"; # working directory full path
+#PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
+#PS1+="\n";
+#PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+
+#Overwrite above PS1 for the chevron prompt
+PS1="$(cecho '\w' cyan)"
+PS1+="\$(prompt_git \"\[${white}\] on \[${orange}\]\" \"\[${blue}\]\")"; # Git repository details
+PS1+=" $(chevrons) "
 
 export PS1;
 
