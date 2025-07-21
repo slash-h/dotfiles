@@ -28,19 +28,6 @@ export CF_HOME=$HOME
 #export EDITOR="nvim"
 
 
-# Uncomment below lines if you want to use Powerline Theme
-# Add this to your PATH if it’s not already declared
-#export PATH=$PATH:$HOME/.local/bin
-
-# Powerline configuration
-#if [ -f $HOME/.local/lib/python3.13/site-packages/powerline/bindings/bash/powerline.sh ]; then
-#    $HOME/.local/bin/powerline-daemon -q
-#    POWERLINE_BASH_CONTINUATION=1
-#    POWERLINE_BASH_SELECT=1
-#    source $HOME/.local/lib/python3.13/site-packages/powerline/bindings/bash/powerline.sh
-#fi
-#
-#
 #Following is for Oh-My-Posh theme
 #eval "$(oh-my-posh init bash --config $(brew --prefix oh-my-posh)/themes/powerlevel10k_classic.omp.json)"
 #eval "$(oh-my-posh init bash --config $(brew --prefix oh-my-posh)/themes/custom_negligible.omp.json)"
