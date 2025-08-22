@@ -1,5 +1,5 @@
 # All aliases in here
-alias vi=vim
+alias vi=nvim
 #alias kitty=/Applications/kitty.app/Contents/MacOS/kitty
 alias twt='[ "$TMUX" ] && tmux display-message -p "#W"'
 alias tm='tmux attach-session -t $(basename "$PWD") || tmux new-session -s $(basename "$PWD")'
@@ -28,7 +28,7 @@ alias ls='ls -p -a --color=auto'
 alias r=ranger
 alias t=tmux
 #alias i='gh issue list'
-alias v=vim
+alias v=nvim
 #alias d='cd $DOTFILES'
 #alias r=reset
 
@@ -36,7 +36,6 @@ alias st='git status'
 alias dpa='docker ps -a --format "table {{.Names}}\t{{.State}}\t{{.RunningFor}}\t{{.Networks}}\t{{.Mounts}}"'
 alias dcl='docker context list'
 #alias vi=nvim
-alias nv=nvim
 
 alias gapi='gh api --paginate --cache 1h'
 

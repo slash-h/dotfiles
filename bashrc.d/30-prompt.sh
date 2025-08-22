@@ -119,7 +119,7 @@ fi;
 #PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 
 #Overwrite above PS1 for the chevron prompt
-PS1='$(cecho "\w" cyan) $(git_info "on ") $(chevrons) '
+PS1='\n$(cecho "\w" cyan) $(git_info "on ") \n $(chevrons) '
 
 export PS1;
 
