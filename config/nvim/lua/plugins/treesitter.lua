@@ -1,20 +1,40 @@
+-- The get_parser_configs method seems to be broken after nvim-treesitter is updated to 'main' branch.
+-- Therefore the code to add custom parser (for CDS) is added in the autocmd.lua file. We exit from here.
+--
+if true then
+  return {}
+end
+
 return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
-      local parser_configs = require 'nvim-treesitter.parsers'.get_parser_configs()
+      local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
       parser_configs.cds = {
         install_info = {
-          url = 'https://github.com/cap-js-community/tree-sitter-cds.git',
-          branch = 'main',
-          files = { 'src/parser.c', 'src/scanner.c' }
+          url = "https://github.com/cap-js-community/tree-sitter-cds.git",
+          branch = "main",
+          files = { "src/parser.c", "src/scanner.c" },
         },
-        filetype = 'cds'
+        filetype = "cds",
       }
-      require 'nvim-treesitter.configs'.setup {
+
+      require("nvim-treesitter.configs").setup({
         -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "bash", "javascript", "toml", "cds" },
+        ensure_installed = {
+          "c",
+          "lua",
+          "vim",
+          "vimdoc",
+          "query",
+          "markdown",
+          "markdown_inline",
+          "bash",
+          "javascript",
+          "toml",
+          "cds",
+        },
         auto_install = false,
         highlight = {
           enable = true,
@@ -27,7 +47,7 @@ return {
           end,
           additional_vim_regex_highlighting = false,
         },
-      }
+      })
     end,
-  }
+  },
 }

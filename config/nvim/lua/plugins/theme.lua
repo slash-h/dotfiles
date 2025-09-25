@@ -1,0 +1,1 @@
+/home/slashh/.config/omarchy/current/theme/neovim.lua
