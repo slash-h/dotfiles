@@ -1,1 +1,8 @@
-/home/slashh/.config/omarchy/current/theme/neovim.lua
+return {
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "tokyonight",
+    },
+  },
+}
