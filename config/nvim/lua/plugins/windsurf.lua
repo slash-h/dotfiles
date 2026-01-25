@@ -1,3 +1,3 @@
 return {
-  "Exafunction/windsurf.nvim",
+  -- "Exafunction/windsurf.nvim",
 }
