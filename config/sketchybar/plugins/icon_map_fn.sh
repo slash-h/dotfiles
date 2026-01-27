@@ -364,6 +364,9 @@ function icon_map() {
   "Microsoft Excel")
     icon_result=":microsoft_excel:"
     ;;
+  "Microsoft OneNote")
+    icon_result=":󰝇:"
+    ;;
   "Microsoft Outlook")
     icon_result=":microsoft_outlook:"
     ;;
@@ -604,7 +607,7 @@ function icon_map() {
   "Telegram")
     icon_result=":telegram:"
     ;;
-  "Terminal" | "终端")
+  "Terminal" | "Ghostty")
     icon_result=":terminal:"
     ;;
   "Typora")
