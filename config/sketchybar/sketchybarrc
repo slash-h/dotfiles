@@ -6,12 +6,12 @@ CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 AEROSPACE_BIN="/opt/homebrew/bin/aerospace"
 
-sketchybar --bar position=top height=40 blur_radius=30 color=0xff24283b
+sketchybar --bar position=top height=40 blur_radius=30 color=0x00000000
 
 default=(
   padding_left=2
   padding_right=2
-  icon.font="Hack Nerd Font:Bold:16.0"
+  icon.font="Hack Nerd Font:Bold:14.0"
   label.font="Hack Nerd Font:Bold:14.0"
   icon.color=0xffffffff
   label.color=0xffffffff
@@ -27,37 +27,40 @@ sketchybar --add event aerospace_workspace_change
 
 WORKSPACES=$("$AEROSPACE_BIN" list-workspaces --all 2>/dev/null)
 
-for sid in $WORKSPACES; do
-  # sketchybar --add item aspace.$sid left \
-  #   --subscribe aspace.$sid aerospace_workspace_change \
-  #   --set aspace.$sid background.color=0x44ffffff \
-  #   background.corner_radius=5 \
-  #   background.height=20 \
-  #   background.drawing=off \
-  #   icon.drawing=off \
-  #   label="$sid" \
-  #   click_script="$AEROSPACE_BIN workspace $sid" \
-  #   script="$PLUGIN_DIR/aerospace.sh $sid"
-  sketchybar --add item space.$sid left \
-    --set space.$sid display="$display_id" \
-    --subscribe space.$sid aerospace_workspace_change \
-    --set space.$sid \
-    drawing=on \
-    background.color=0x44ffffff \
-    background.corner_radius=2 \
-    background.drawing=on \
-    background.border_color=0xAAFFFFFF \
-    background.border_width=0 \
-    background.height=25 \
-    icon="$sid" \
-    icon.padding_left=10 \
-    label.font="sketchybar-app-font:Regular:16.0" \
-    label.padding_right=20 \
-    label.padding_left=0 \
-    label.y_offset=-1 \
-    label.shadow.drawing=off \
-    click_script="$AEROSPACE_BIN workspace $sid" \
-    script="$PLUGIN_DIR/aerospace.sh $sid"
+#Add workspaces to all monitors
+for monitor in $(aerospace list-monitors --format "%{monitor-appkit-nsscreen-screens-id}"); do
+  for sid in $WORKSPACES; do
+    # sketchybar --add item aspace.$sid left \
+    #   --subscribe aspace.$sid aerospace_workspace_change \
+    #   --set aspace.$sid background.color=0x44ffffff \
+    #   background.corner_radius=5 \
+    #   background.height=20 \
+    #   background.drawing=off \
+    #   icon.drawing=off \
+    #   label="$sid" \
+    #   click_script="$AEROSPACE_BIN workspace $sid" \
+    #   script="$PLUGIN_DIR/aerospace.sh $sid"
+    sketchybar --add item space.$sid left \
+      --set space.$sid display="$display_id" \
+      --subscribe space.$sid aerospace_workspace_change \
+      --set space.$sid \
+      drawing=on \
+      background.color=0x00000000 \
+      background.corner_radius=2 \
+      background.drawing=on \
+      background.border_color=0xAAFFFFFF \
+      background.border_width=0 \
+      background.height=25 \
+      icon="$sid" \
+      icon.padding_left=10 \
+      label.font="sketchybar-app-font:Regular:14.0" \
+      label.padding_right=20 \
+      label.padding_left=0 \
+      label.y_offset=-1 \
+      label.shadow.drawing=off \
+      click_script="$AEROSPACE_BIN workspace $sid" \
+      script="$PLUGIN_DIR/aerospace.sh $sid"
+  done
 done
 
 # Left items
