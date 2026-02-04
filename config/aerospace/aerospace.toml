@@ -69,7 +69,7 @@ preset = 'qwerty'
 inner.horizontal = 20
 inner.vertical = 20
 outer.bottom = 10
-outer.top = [{ monitor."built-in" = 10 }, { monitor.main = 35}, { monitor."27B1" = 37 }, 24 ]
+outer.top = [{ monitor."Built-in" = 10 }, 37 ]
 outer.right = 10
 outer.left = 10
 
@@ -107,14 +107,18 @@ outer.left = 10
 alt-b = 'exec-and-forget open -a /Applications/Brave\ Browser.app'
 alt-g = 'exec-and-forget open -a /Applications/Google\ Chrome.app'
 alt-c = 'exec-and-forget open -a /Applications/Visual\ Studio\ Code.app'
-alt-t = 'exec-and-forget open -a /Applications/Ghostty.app'
+alt-enter = 'exec-and-forget open -a /Applications/Ghostty.app'
 alt-d = 'exec-and-forget open -a /Applications/Docker.app'
 alt-o = 'exec-and-forget open -a /Applications/Microsoft\ OneNote.app/'
-#alt-n = 'exec-and-forget open -a /Applications/Notion.app'
+
 alt-shift-r = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
+alt-w = 'close --quit-if-last-window'
+
+#take a screenshot. screencapture is a built-in macOS command
+alt-shift-s = 'exec-and-forget screencapture -i -c'
 
 # See: https://nikitabobko.github.ioeAeroSpace/commands#layout
-alt-e = 'layout tiles horizontal vertical'
+alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 alt-f = 'fullscreen'
 alt-y = ['focus right', 'join-with down', 'layout tiles horizontal']
@@ -144,6 +148,7 @@ alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
 alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -153,6 +158,7 @@ alt-shift-4 = 'move-node-to-workspace 4'
 alt-shift-5 = 'move-node-to-workspace 5'
 alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -209,12 +215,20 @@ if.app-id ='com.microsoft.onenote.mac'
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
+if.app-id ='com.microsoft.Excel'
+run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
 if.app-id ='com.microsoft.VSCode'
+run = ['move-node-to-workspace 6']
+
+[[on-window-detected]]
+if.app-id ='org.gimp.gimp'
 run = ['move-node-to-workspace 6']
 #
 [[on-window-detected]]
-if.app-id ='com.docker.docker'
-run = ['move-node-to-workspace 7']
+if.app-id ='com.electron.dockerdesktop'
+run = ['move-node-to-workspace 8']
 
 
 # force certain workspaces to certain monitors
@@ -226,3 +240,4 @@ run = ['move-node-to-workspace 7']
 5 = 'main'
 6 = 'secondary'
 7 = 'secondary'
+8 = 'secondary'
