@@ -4,10 +4,6 @@ alias vi=nvim
 alias twt='[ "$TMUX" ] && tmux display-message -p "#W"'
 alias tm='tmux attach-session -t $(basename "$PWD") || tmux new-session -s $(basename "$PWD")'
 alias python=/usr/local/bin/python3
-#alias cgr='cg && r'
-alias vig='vim -c "Goyo"'
-#alias wfb='workflowbrowser'
-#alias wfe='workflowbrowser | xargs showgithubcontent | vim --not-a-term -' # workflow edit
 alias branch='git checkout -b'
 #alias pr='git push --set-upstream origin $(git branch --show-current) && gh pr create --body'
 
@@ -19,6 +15,7 @@ alias whitespace="sed 's/ /·/g;s/\t/￫/g;s/\r/§/g;s/$/¶/g'"
 #alias iv='gh issue view'
 #alias ie='gh issue edit'
 #alias ic='gh issue comment'
+#alias i='gh issue list'
 
 # Show directory symbol (/) and hidden directories
 alias ls='ls -p -a --color=auto'
@@ -26,16 +23,14 @@ alias ls='ls -p -a --color=auto'
 # Single char aliases
 #alias k=kubectl
 alias r=ranger
-alias t=tmux
-#alias i='gh issue list'
-alias v=nvim
-#alias d='cd $DOTFILES'
+alias t='tmux -u'
+alias lg=lazygit
+alias d='cd $DOTFILES'
 #alias r=reset
 
 alias st='git status'
 alias dpa='docker ps -a --format "table {{.Names}}\t{{.State}}\t{{.RunningFor}}\t{{.Networks}}\t{{.Mounts}}"'
 alias dcl='docker context list'
-#alias vi=nvim
 
 alias gapi='gh api --paginate --cache 1h'
 

@@ -6,8 +6,8 @@
 
 # If not running interactively, don't do anything
 case $- in
-  *i*) ;;
-  *) return ;;
+*i*) ;;
+*) return ;;
 esac
 
 export DOTFILES="$HOME/dotfiles"
@@ -17,16 +17,12 @@ for rcfile in "$DOTFILES"/bashrc.d/*.sh; do
   source "$rcfile"
 done
 
-
 export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 export NODE_EXTRA_CA_CERTS="$HOME/Documents/Sud/certs/AllCACertificates.pem"
 export CF_HOME=$HOME
-#export VISUAL="nvim"
-#export EDITOR="nvim"
-
 
 #Following is for Oh-My-Posh theme
 #eval "$(oh-my-posh init bash --config $(brew --prefix oh-my-posh)/themes/powerlevel10k_classic.omp.json)"

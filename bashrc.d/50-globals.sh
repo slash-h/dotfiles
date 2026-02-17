@@ -14,7 +14,7 @@ privateenvvars="$HOME/.private_envvars.sh"
 [ -f "$privateenvvars" ] && . "$privateenvvars"
 
 # See https://github.blog/2021-03-11-scripting-with-github-cli/
-type delta > /dev/null 2>&1 && export GIT_PAGER='delta -s'
+type delta >/dev/null 2>&1 && export GIT_PAGER='delta -s'
 
 # For use with the GitHub CLI 'gh' when making API calls
 export GH_CACHETIME=1h
@@ -30,12 +30,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export DOCKER_BUILDKIT=1
 
 #export CF_HOME="$HOME/.config/cf"
-
-# This is so I can use $HOSTHOME when invoking Docker from within
-# a container, but want to specify a bind-mount (which of course
-# must refer to the host OS filesystem).
-#export HOSTHOME="/Users/I347491"
-
+export DOTFILES="$HOME/dotfiles/"
 
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
-
