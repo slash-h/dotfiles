@@ -232,6 +232,9 @@ function icon_map() {
   "System Preferences" | "System Settings" | "系统设置" | "Réglages Système")
     icon_result=":gear:"
     ;;
+  "Ghostty")
+    icon_result=":ghostty:"
+    ;;
   "GitHub Desktop")
     icon_result=":git_hub:"
     ;;
@@ -607,7 +610,7 @@ function icon_map() {
   "Telegram")
     icon_result=":telegram:"
     ;;
-  "Terminal" | "Ghostty")
+  "Terminal")
     icon_result=":terminal:"
     ;;
   "Typora")
