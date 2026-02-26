@@ -11,7 +11,7 @@ AEROSPACE_BIN="/opt/homebrew/bin/aerospace"
 # Setting up the general bar appearance of the bar
 bar=(
   height=35
-  color=$BAR_COLOR
+  color=$ZEDBLACK #$BAR_COLOR
   shadow=on
   position=top
   sticky=on
@@ -44,7 +44,7 @@ default=(
 sketchybar --default "${default[@]}"
 
 # Left items
-source "$ITEM_DIR/slashh.sh"
+source "$ITEM_DIR/logo.sh"
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
 

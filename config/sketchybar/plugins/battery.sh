@@ -20,10 +20,11 @@ case "${PERCENTAGE}" in
   ;;
 [3-5][0-9])
   ICON=""
+  COLOR=$ORANGE
   ;;
 [1-2][0-9])
   ICON=""
-  COLOR=$ORANGE
+  COLOR=$RED
   ;;
 *)
   ICON=""
@@ -33,6 +34,7 @@ esac
 
 if [[ "$CHARGING" != "" ]]; then
   ICON=""
+  COLOR=$YELLOW
 fi
 
 # The item invoking this script (name $NAME) will get its icon and label

@@ -9,7 +9,7 @@ slashh_logo=(
   icon.background.height=30
   # icon.background.color=$BLUE
   # icon.background.corner_radius=15
-  padding_right=5
+  padding_right=2
   # label.background.drawing=on
   label.drawing=off
 )
