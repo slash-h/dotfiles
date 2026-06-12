@@ -182,6 +182,9 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 # Default space
+[[on-window-detected]]
+if.app-id = "com.apple.systempreferences"
+run = ["layout tiling"] #open settings app in tiling layout instead of default floating
 
 [[on-window-detected]]
 if.app-id ='com.microsoft.Outlook'
@@ -216,16 +219,17 @@ if.app-id ='com.microsoft.Excel'
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
+if.app-id ='com.microsoft.rdc.macos'    #Windows App
+run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
 if.app-id ='com.microsoft.VSCode'
-run = ['move-node-to-workspace 6']
+run = ['move-node-to-workspace 6', 'layout tiling']
+# run = 'layout tiling'
 
 [[on-window-detected]]
 if.app-id ='org.gimp.gimp'
 run = ['move-node-to-workspace 6']
-#
-[[on-window-detected]]
-if.app-id ='com.microsoft.rdc.macos'    #Windows App
-run = ['move-node-to-workspace 7']
 
 [[on-window-detected]]
 if.app-id ='com.electron.dockerdesktop'

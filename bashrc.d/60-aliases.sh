@@ -28,6 +28,11 @@ alias lg=lazygit
 alias d='cd $DOTFILES'
 #alias r=reset
 
+#show which apps are running in aerospace and switch to it when selected
+ff() {
+  aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
+}
+
 alias st='git status'
 alias dpa='docker ps -a --format "table {{.Names}}\t{{.State}}\t{{.RunningFor}}\t{{.Networks}}\t{{.Mounts}}"'
 alias dcl='docker context list'
