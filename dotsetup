@@ -1,11 +1,23 @@
 #!/usr/bin/env bash
 
-# Dotfiles setup - use after cloning dotfiles repo to .dotfiles
+set -euo pipefail
 
-dotfiles="$HOME/dotfiles"
+DOTFILES="$HOME/dotfiles"
 
-# Files
-for i in inputrc gitconfig bashrc config/tmux/tmux.conf config/nvim/; do
-  [[ $i =~ \/ ]] && mkdir -p "$HOME/.$(dirname $i)"
-  ln -s -f "$dotfiles/$i" "$HOME/.${i%/}"
-done
+DEFAULT_PACKAGES=(bash npm git prettier nvim-minimal tmux aerospace sketchybar jankyborders lf gh ghostty)
+
+command -v stow &>/dev/null || brew install stow
+
+cd "$DOTFILES"
+
+if [[ $# -eq 0 ]]; then
+  pkgs=()
+  for pkg in "${DEFAULT_PACKAGES[@]}"; do
+    # Skip git if .gitconfig is not present (fresh machine)
+    [[ "$pkg" == "git" && ! -f "$DOTFILES/git/.gitconfig" ]] && continue
+    pkgs+=("$pkg")
+  done
+  stow -t ~ "${pkgs[@]}"
+else
+  stow -t ~ "$@"
+fi
