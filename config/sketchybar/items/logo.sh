@@ -6,14 +6,13 @@ POPUP_OFF="sketchybar --set logo popup.drawing=off"
 POPUP_CLICK_SCRIPT="sketchybar --set \$NAME popup.drawing=toggle"
 
 logo_config=(
-  icon='' #'󰥳' #'󰠩'
-  icon.font="Hack Nerd Font:Regular:18.0"
-  icon.color=$MAGENTA
-  icon.background.height=30
-  # icon.background.color=$BLUE
-  # icon.background.corner_radius=15
+  icon.drawing=off
+  background.image="$HOME/.config/sketchybar/images/slashh.png"
+  background.image.drawing=on
+  background.image.scale=0.07
+  background.height=30
+  background.drawing=on
   padding_right=2
-  # label.background.drawing=on
   label.drawing=off
   click_script="$POPUP_CLICK_SCRIPT"
 )
@@ -39,18 +38,13 @@ sketchybar --add item apple.lock popup.logo \
   click_script="pmset displaysleepnow;
                 $POPUP_OFF"
 
-# Add tray (bracket) containing all spaces
+# Transparent tray — kept as a container for future grouping (no border, no fill)
 logo_tray_config=(
-  background.color=$BACKGROUND_2
-  background.border_color=$MAGENTA
-  background.border_width=2
-  background.drawing=on
-  background.height=30
-  background.corner_radius=5
+  background.drawing=off
 )
 
 sketchybar --add bracket logo_tray logo \
   --set logo_tray "${logo_tray_config[@]}"
 
 # Add empty space after the logo
-sketchybar --add item empty left --set empty icon=' ' label.drawing=off
+# sketchybar --add item empty left --set empty icon=' ' label.drawing=off

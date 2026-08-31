@@ -17,22 +17,19 @@ for monitor in $(aerospace list-monitors --format "%{monitor-appkit-nsscreen-scr
   for sid in $WORKSPACES; do
     #[[------- without app icons  ------ #
     sketchybar --add item space.$sid left \
-      --subscribe space.$sid aerospace_workspace_change \
-      --set space.$sid \ #background.color=$BACKGROUND_1 \
+      --subscribe space.$sid aerospace_workspace_change front_app_switched \
+      --set space.$sid \
       icon="$sid" \
+      icon.color=$INACTIVE_ICON \
       icon.padding_left=10 \
       icon.padding_right=10 \
       padding_left=2 \
       padding_right=2 \
-      label.padding_right=20 \
-      icon.highlight_color=$RED \
-      label.font="sketchybar-app-font:Regular:16.0" \
-      label.background.height=26 \
-      label.background.drawing=on \
-      label.background.color=$BACKGROUND_2 \
-      label.background.corner_radius=8 \
       label.drawing=off \
-      background.corner_radius=5 \
+      background.color=$TRANSPARENT \
+      background.drawing=off \
+      background.height=2 \
+      background.corner_radius=1 \
       click_script="$AEROSPACE_BIN workspace $sid" \
       script="$PLUGIN_DIR/aerospace.sh $sid"
     #]]
@@ -62,14 +59,9 @@ for monitor in $(aerospace list-monitors --format "%{monitor-appkit-nsscreen-scr
   done
 done
 
-# Add tray (bracket) containing all spaces
+# Transparent bracket — kept as a container for future grouping (no border, no fill)
 spaces=(
-  background.color=$BACKGROUND_2
-  background.border_color=$MAGENTA
-  background.border_width=2
-  background.drawing=on
-  background.height=30
-  background.corner_radius=5
+  background.drawing=off
 )
 
 sketchybar --add bracket spaces '/space\..*/' \

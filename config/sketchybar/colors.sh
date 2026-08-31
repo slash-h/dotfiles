@@ -2,7 +2,7 @@
 
 # Color Palette
 export BLACK=0xff181926
-export ZEDBLACK=0xff000000
+export TRANSPARENTBLACK=0xbb000000
 export WHITE=0xffcad3f5
 export RED=0xffed8796
 export GREEN=0xffa6da95
@@ -25,3 +25,8 @@ export POPUP_BACKGROUND_COLOR=0xff24273a
 export POPUP_BORDER_COLOR=$WHITE
 
 export SHADOW_COLOR=$BLACK
+
+# Aerospace workspace highlight
+export ACTIVE_BG=0xff8087a2     # Active workspace pill — medium slate grey
+export OCCUPIED_ICON=0xcccad3f5  # Inactive but has windows — ~80% alpha white
+export INACTIVE_ICON=0x80cad3f5 # Empty workspace icon — half-alpha white

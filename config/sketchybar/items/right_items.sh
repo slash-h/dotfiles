@@ -5,18 +5,32 @@ source "$HOME/.config/sketchybar/colors.sh"
 CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
+SPACES_FONT="Hack Nerd Font:Bold:14.0"
+
 # Clock
 sketchybar --add item clock right \
-  --set clock update_freq=60 icon= script="$PLUGIN_DIR/clock.sh"
+  --set clock update_freq=60 icon= script="$PLUGIN_DIR/clock.sh" \
+  icon.font="$SPACES_FONT" \
+  icon.color=$OCCUPIED_ICON \
+  label.font="$SPACES_FONT" \
+  label.color=$OCCUPIED_ICON
 
 # Volume
 sketchybar --add item volume right \
   --set volume script="$PLUGIN_DIR/volume.sh" \
+  icon.font="$SPACES_FONT" \
+  icon.color=$OCCUPIED_ICON \
+  label.font="$SPACES_FONT" \
+  label.color=$OCCUPIED_ICON \
   --subscribe volume volume_change
 
 # Battery
 sketchybar --add item battery right \
   --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+  icon.font="$SPACES_FONT" \
+  icon.color=$OCCUPIED_ICON \
+  label.font="$SPACES_FONT" \
+  label.color=$OCCUPIED_ICON \
   --subscribe battery system_woke power_source_change
 
 # # Notify

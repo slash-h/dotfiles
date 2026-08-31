@@ -3,6 +3,7 @@ alias vi=nvim
 #alias kitty=/Applications/kitty.app/Contents/MacOS/kitty
 alias twt='[ "$TMUX" ] && tmux display-message -p "#W"'
 alias tm='tmux attach-session -t $(basename "$PWD") || tmux new-session -s $(basename "$PWD")'
+alias tmt='tmux new-session -s $(basename "$PWD") \; new-window -n bash \; new-window -n nvim \; select-window -t $(basename "$PWD"):1'
 alias python=/usr/local/bin/python3
 alias branch='git checkout -b'
 #alias pr='git push --set-upstream origin $(git branch --show-current) && gh pr create --body'
