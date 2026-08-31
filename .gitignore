@@ -1,5 +1,5 @@
 .DS_Store
-gitconfig
+git/.gitconfig
 *.swp
 .*.un~
 *~
@@ -18,7 +18,7 @@ config/configstore/
 config/exercism/
 config/stack/
 config/gcloud/
-config/gh/hosts.yml
+gh/.config/gh/hosts.yml
 config/btp/
 config/autocomplete/scripts/sapbtpcli-autocomplete.plugin.sh
 config/kitty/theme.conf
