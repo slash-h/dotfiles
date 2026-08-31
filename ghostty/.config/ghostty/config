@@ -14,23 +14,25 @@ quit-after-last-window-closed = true
 term = xterm-256color
 
 # The theme I liked the most from the `ghostty +list-themes`
-theme = TokyoNight Storm
+theme = Rose Pine
 
 #font
 font-size = 16
+background-blur-radius = 20
+window-decoration = false
 
 #Some global keybinds
 keybind = ctrl+q=close_surface
 #Window split
-#keybind = ctrl+\=new_split:right
-#keybind = ctrl+minus=new_split:down
+keybind = ctrl+\=new_split:right
+keybind = ctrl+minus=new_split:down
 
-# Window split Keybinding same like TMUX keymap
-keybind = ctrl+a>\=new_split:right   
-keybind = ctrl+a>minus=new_split:down
+# Window split Keybinding same like TMUX keymap (commented because the keymaps conflict inside PDE docker container)
+#keybind = ctrl+a>\=new_split:right   
+#keybind = ctrl+a>minus=new_split:down
 
 # Toggle zoom (maximize pane)
-keybind = ctrl+a>m=toggle_split_zoom
+keybind = ctrl+a>z=toggle_split_zoom
 
 # Double ctrl+a sends literal Ctrl-A to the running app if needed
-keybind = ctrl+a>ctrl+a=text:\x01
+#keybind = ctrl+a>ctrl+a=text:\x01
