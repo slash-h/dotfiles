@@ -12,7 +12,7 @@ esac
 
 export DOTFILES="$HOME/dotfiles"
 
-for rcfile in "$DOTFILES"/bashrc.d/*.sh; do
+for rcfile in "$HOME"/.bashrc.d/*.sh; do
   # shellcheck disable=SC1090
   source "$rcfile"
 done
