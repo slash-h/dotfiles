@@ -4,9 +4,29 @@ set -euo pipefail
 
 DOTFILES="$HOME/dotfiles"
 
-DEFAULT_PACKAGES=(bash npm git prettier nvim-minimal tmux aerospace sketchybar jankyborders lf gh ghostty)
+COMMON_PACKAGES=(bash npm git prettier nvim-minimal tmux lf gh ghostty)
+MACOS_PACKAGES=(aerospace sketchybar jankyborders)
 
-command -v stow &>/dev/null || brew install stow
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  DEFAULT_PACKAGES=("${COMMON_PACKAGES[@]}" "${MACOS_PACKAGES[@]}")
+else
+  DEFAULT_PACKAGES=("${COMMON_PACKAGES[@]}")
+fi
+
+install_stow() {
+  case "$(uname -s)" in
+    Darwin) brew install stow ;;
+    Linux)
+      if command -v apt-get &>/dev/null;  then sudo apt-get install -y stow
+      elif command -v dnf &>/dev/null;    then sudo dnf install -y stow
+      elif command -v pacman &>/dev/null; then sudo pacman -S --noconfirm stow
+      else echo "Cannot install stow: no known package manager" >&2; exit 1
+      fi ;;
+    *) echo "Unsupported OS: $(uname -s)" >&2; exit 1 ;;
+  esac
+}
+
+command -v stow &>/dev/null || install_stow
 
 cd "$DOTFILES"
 

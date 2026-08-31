@@ -51,7 +51,8 @@ authenv() {
 
 search() {
   local IFS="+"
-  open "https://google.com/search?q=$*"
+  local url="https://google.com/search?q=$*"
+  if [[ "$(uname -s)" == "Darwin" ]]; then open "$url"; else xdg-open "$url"; fi
 }
 
 focus() {

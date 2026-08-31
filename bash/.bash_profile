@@ -1,5 +1,5 @@
 # Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
+[[ "$(uname -s)" == "Darwin" ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Created by `pipx` on 2025-01-03 22:55:21
 export PATH="$PATH:/Users/badgus/.local/bin"

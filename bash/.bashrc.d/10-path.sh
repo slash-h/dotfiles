@@ -1,8 +1,8 @@
-export PATH="/usr/local/opt/openjdk/bin:$PATH" # brew-installed Java
-
-# Brew-installed Gnu utils
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  export PATH="/usr/local/opt/openjdk/bin:$PATH"
+  export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+  export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+fi
 
 # Add dotfiles scripts path and subpaths
 #while read -r path; do
