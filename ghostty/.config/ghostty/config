@@ -18,6 +18,7 @@ theme = Rose Pine
 
 #font
 font-size = 16
+background-opacity = 0.80
 background-blur-radius = 20
 window-decoration = false
 

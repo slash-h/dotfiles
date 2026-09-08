@@ -3,6 +3,13 @@
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
+# Sync popup border color with jankyborders active_color
+BORDERSRC="$HOME/.config/borders/bordersrc"
+if [ -f "$BORDERSRC" ]; then
+  BORDERS_ACTIVE_COLOR=$(grep -m1 'active_color=' "$BORDERSRC" | sed 's/.*active_color=\([^ )]*\).*/\1/')
+  [ -n "$BORDERS_ACTIVE_COLOR" ] && POPUP_BORDER_COLOR="$BORDERS_ACTIVE_COLOR"
+fi
+
 CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
 ITEM_DIR="$CONFIG_DIR/items"
 PLUGIN_DIR="$CONFIG_DIR/plugins"
