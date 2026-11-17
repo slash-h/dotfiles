@@ -34,7 +34,7 @@ return {
         end)
         vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
         -- find files in neovim config directory (from anywhere)
-        vim.keymap.set("n", "<space>en",
+        vim.keymap.set("n", "<leader>cf",
             function()
                 builtin.find_files { cwd = vim.fn.stdpath("config") }
             end)

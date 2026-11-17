@@ -11,6 +11,14 @@ vim.keymap.set("n", "<leader>e", ":Lexplore<cr>", { silent = true })
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "netrw",
     callback = function()
+        -- netrw sets buffer-local <C-l> (refresh) etc. which shadow the global
+        -- vim-tmux-navigator maps. Re-point them so window navigation works
+        -- from inside the tree.
+        vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { buffer = true, silent = true })
+        vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { buffer = true, silent = true })
+        vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { buffer = true, silent = true })
+        vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { buffer = true, silent = true })
+
         vim.keymap.set("n", "%", function()
             local fname = vim.fn.input("Enter filename: ")
             if fname == "" then
